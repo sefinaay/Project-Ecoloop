@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Informasi Sampah</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;600;400&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: #fff;
+      font-family: 'Poppins', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .header-sampah {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      width: 90%;
+      margin: 40px auto 0 auto;
+    }
+    
+    .btn-back {
+      background: #82af82;
+      color: #fff;
+      border: none;
+      border-radius: 999px;
+      padding: 10px 15px;
+      font-size: 1em;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(131, 175, 126, 0.10);
+      transition: background 0.2s;
+      margin-bottom: 0;
+    }
+    
+    .btn-back:hover {
+      background: #6f9e6f;
+    }
+
+    .btn-green-konfir {
+      background: #83AF7E;
+      color: #fff;
+      border: none;
+      border-radius: 999px;
+      padding: 10px 30px;
+      font-size: 1em;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(131, 175, 126, 0.10);
+      transition: background 0.2s;
+      position: fixed;
+      bottom: 80px;
+      right: 100px;
+      z-index: 1000;
+    }
+    
+    .btn-green-konfir:hover {
+      background: #6f9e6f;
+    }
+
+    .form-box {
+      border: 1px solid #92b894;
+      border-radius: 20px;
+      padding: 10px 20px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      font-weight: bold;
+      color: black;
+      background-color: white;
+    }
+
+    .btn-radio {
+      background-color: #92b894;
+      color: white;
+      border-radius: 999px;
+      font-weight: 600;
+      padding: 10px 24px;
+      border: none;
+      width: 100%;
+      margin-bottom: 15px;
+    }
+
+    .btn-radio:hover {
+      background: #6f9e6f;
+    }
+
+    .section-spacing {
+      margin-top: 30px;
+      flex: 1;
+    }
+
+    .form-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      padding-bottom: 150px;
+    }
+
+    .form-group-custom {
+      margin-bottom: 30px;
+    }
+
+    .form-label-custom {
+      font-size: 1.25rem;
+      font-weight: bold;
+      margin-bottom: 15px;
+      display: block;
+    }
+
+    .sampah-title {
+      text-align: center;
+      font-size: 2em;
+      font-weight: 700;
+      margin: 0 0 30px 0;
+      letter-spacing: 0.01em;
+    }
+
+    .input-wrapper {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 768px) {
+      .header-sampah {
+        width: 90%;
+        margin: 20px auto 0 auto;
+      }
+      
+      .sampah-title {
+        font-size: 1.8em;
+        margin: 0 0 25px 0;
+      }
+      
+      .form-container {
+        padding: 15px;
+        padding-bottom: 120px;
+      }
+      
+      .btn-radio, .form-box {
+        padding: 8px 16px;
+      }
+      
+      .form-label-custom {
+        font-size: 1.1rem;
+      }
+      
+      .btn-green-konfir {
+        padding: 10px 25px;
+        bottom: 60px;
+        right: 60px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .header-sampah {
+        margin: 15px auto 0 auto;
+      }
+      
+      .sampah-title {
+        font-size: 1.6em;
+      }
+      
+      .btn-green-konfir {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+        bottom: 30px;
+        right: 30px;
+      }
+      
+      .form-container {
+        padding: 10px;
+        padding-bottom: 100px;
+      }
+      
+      .form-label-custom {
+        font-size: 1rem;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .btn-green-konfir {
+        right: 20px;
+        bottom: 20px;
+      }
+      
+      .header-sampah {
+        width: 95%;
+      }
+    }
+
+      .form-box {
+      border: 1px solid #92b894;
+      border-radius: 20px;
+      padding: 10px 20px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      font-weight: bold;
+      color: black;
+      background-color: white;
+      width: 350px;
+      height: 25px;
+      text-align: center;
+      display: block;
+      margin: 0 auto 15px auto;
+    }
+
+    .btn-radio {
+      background-color: #92b894;
+      color: white;
+      border-radius: 20px;
+      font-weight: 600;
+      border: none;
+      width: 400px;
+      height: 50px;
+      margin: 0 auto 15px auto;
+      display: block;
+      text-align: center;
+      line-height: 20px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+
+<div class="header-sampah">
+  <a href="afterlogin.html"><button class="btn-back" onclick="window.history.back()">Kembali</button></a>
+</div>
+
+<div class="container section-spacing">
+  <h2 class="sampah-title">Informasi Sampah</h2>
+
+  <div class="form-container">
+  <!-- Berat Sampah -->
+  <div class="form-group-custom">
+    <label class="form-label-custom">Berat Sampah (kg)</label>
+    <input type="number" class="form-box" 
+           min="1" max="100" value="5" step="0.5">
+  </div>
+  
+  <!-- Jenis Sampah -->
+  <div class="form-group-custom">
+    <label class="form-label-custom">Jenis Sampah</label>
+    <button class="btn-radio" onclick="selectJenisSampah(this, 'organik')">Organik</button>
+    <button class="btn-radio" onclick="selectJenisSampah(this, 'non-organik')">Non-Organik</button>
+    <input type="hidden" id="jenisSampah" name="jenisSampah">
+  </div>
+</div>
+</div>
+
+<a href="infoPembayaran.html"><button class="btn-green-konfir">Lanjut</button></a>
+
+<script>
+  function selectJenisSampah(button, jenis) {
+    document.querySelectorAll('.btn-radio').forEach(btn => {
+      btn.style.backgroundColor = '#92b894';
+    });
+    button.style.backgroundColor = '#6f9e6f';
+    document.getElementById('jenisSampah').value = jenis;
+  }
+</script>
+
+</body>
+</html>

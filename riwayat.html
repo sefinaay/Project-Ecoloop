@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Riwayat Transaksi</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;600;400&display=swap" rel="stylesheet">
+  <style>
+    /* Reset dan Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      background-color: #ffffff;
+      font-family: 'Poppins', sans-serif;
+      position: relative;
+      min-height: 100vh;
+      line-height: 1.5;
+    }
+    
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    
+    /* Layout Styles */
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+    
+    .py-5 {
+      padding-top: 3rem;
+      padding-bottom: 3rem;
+    }
+    
+    .mb-4 {
+      margin-bottom: 1.5rem;
+    }
+    
+    .mt-2 {
+      margin-top: 0.5rem;
+    }
+    
+    .ms-2 {
+      margin-left: 0.5rem;
+    }
+    
+    .text-center {
+      text-align: center;
+    }
+    
+    /* Flex Utilities */
+    .d-flex {
+      display: flex;
+    }
+    
+    .justify-content-center {
+      justify-content: center;
+    }
+    
+    .justify-content-between {
+      justify-content: space-between;
+    }
+    
+    .align-items-center {
+      align-items: center;
+    }
+    
+    /* Text Styles */
+    .fw-bold {
+      font-weight: 700;
+    }
+    
+    .fw-semibold {
+      font-weight: 600;
+    }
+    
+    .text-success {
+      color: #28a745;
+    }
+    
+    /* Custom Components */
+    .header-riwayat {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      width: 90%;
+      margin: 40px auto 0 auto;
+    }
+    
+    .btn-back {
+      background: #82af82;
+      color: #fff;
+      border: none;
+      border-radius: 999px;
+      padding: 10px 15px;
+      font-size: 1em;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(131, 175, 126, 0.10);
+      transition: background 0.2s;
+      margin-bottom: 0;
+    }
+    
+    .btn-back:hover {
+      background: #6f9e6f;
+    }
+    
+    .tab-btn {
+      border: none;
+      border-radius: 999px;
+      padding: 8px 16px;
+      margin: 0 5px;
+      background-color: #f1f1f1;
+      color: #999;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    
+    .tab-btn.active {
+      background-color: #d9f2da;
+      color: #000;
+    }
+    
+    .card-custom {
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      padding: 20px;
+      background-color: white;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .inner-card {
+      background-color: #f6fff6;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+      border-radius: 12px;
+      padding: 1rem;
+      margin-top: 0.5rem;
+    }
+    
+    .transaksi-icon {
+      width: 30px;
+      height: 30px;
+      margin-right: 10px;
+    }
+    
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .header-riwayat {
+        width: 90%;
+        margin: 20px auto 0 auto;
+      }
+      
+      .btn-back {
+        font-size: 0.95em;
+        padding: 8px 14px;
+      }
+      
+      .py-5 {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .header-riwayat {
+        margin: 15px auto 0 auto;
+      }
+      
+      .transaksi-icon {
+        width: 24px;
+        height: 24px;
+      }
+      
+      .tab-btn {
+        font-size: 12px;
+        padding: 6px 12px;
+      }
+      
+      .btn-back {
+        padding: 6px 12px;
+        font-size: 0.9rem;
+      }
+      
+      .card-custom {
+        padding: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="header-riwayat">
+  <a href="profileBaru.html"><button class="btn-back">Kembali</button></a>
+</div>
+
+<div class="container py-5">
+  <h2 class="fw-bold text-center mb-4">Riwayat Transaksi</h2>
+
+  <div class="d-flex justify-content-center mb-4">
+    <a href="riwayatTigaBulan.html"><button class="tab-btn">3 Bulan terakhir</button></a>
+    <a href="riwayatBulanLalu.html"><button class="tab-btn">Bulan lalu</button></a>
+    <a href="riwayat.html"><button class="tab-btn active">Bulan ini</button></a>
+  </div>
+
+  <div class="card-custom">
+    <!-- Transaksi 1 -->
+    <div class="mb-4">
+      <strong>Minggu, 1 Mei 2025</strong>
+      <div class="inner-card d-flex justify-content-between align-items-center">
+        <div class="d-flex align-items-center">
+          <img src="gambar/daur ulang.png" alt="icon" class="transaksi-icon">
+          <div class="ms-2">
+            Menukar sampah<br>
+            5 Kilogram sampah organik
+          </div>
+        </div>
+        <div class="text-success fw-semibold">+50 poin</div>
+      </div>
+    </div>
+
+    <!-- Transaksi 2 -->
+    <div class="mb-4">
+      <strong>Minggu, 8 Mei 2025</strong>
+      <div class="inner-card d-flex justify-content-between align-items-center">
+        <div class="d-flex align-items-center">
+          <img src="gambar/daur ulang.png" alt="icon" class="transaksi-icon">
+          <div class="ms-2">
+            Menukar sampah<br>
+            13 Kilogram sampah organik
+          </div>
+        </div>
+        <div class="text-success fw-semibold">+90 poin</div>
+      </div>
+    </div>
+
+    <!-- Transaksi 3 -->
+    <div class="mb-4">
+      <strong>Rabu, 19 Mei 2025</strong>
+      <div class="inner-card d-flex justify-content-between align-items-center">
+        <div class="d-flex align-items-center">
+          <img src="gambar/daur ulang.png" alt="icon" class="transaksi-icon">
+          <div class="ms-2">
+            Menukar sampah<br>
+            30 Kilogram sampah organik
+          </div>
+        </div>
+        <div class="text-success fw-semibold">+130 poin</div>
+      </div>
+    </div>
+
+    <!-- Transaksi 4 -->
+    <div>
+      <strong>Jumat, 30 Mei 2025</strong>
+      <div class="inner-card d-flex justify-content-between align-items-center">
+        <div class="d-flex align-items-center">
+          <img src="gambar/daur ulang.png" alt="icon" class="transaksi-icon">
+          <div class="ms-2">
+            Menukar sampah<br>
+            30 Kilogram sampah organik
+          </div>
+        </div>
+        <div class="text-success fw-semibold">+130 poin</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

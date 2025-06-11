@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Profile - EcoLoop</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;600;400&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #fff;
+      overflow-x: hidden; /* Mencegah scroll horizontal */
+    }
+    .profile-container {
+      display: flex;
+      min-height: 100vh;
+      width: 100vw;
+    }
+    .profile-left {
+      width: 28vw;
+      max-width: 320px;
+      min-width: 220px;
+      background: #eaf7e2 url('gambar/background.png') no-repeat center center;
+      background-size: cover;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      justify-content: stretch;
+      position: relative;
+      padding-left: 24px;
+      min-height: 100vh;
+      height: 100vh;
+      padding: 0;
+    }
+    .profile-left .logo {
+      display: none; /* Sembunyikan img jika sudah pakai background */
+    }
+    .profile-left .mascot {
+      width: 70%;
+      min-width: 220px;
+      max-width: 340px;
+      display: block;
+      margin-bottom: 24px;
+    }
+    .profile-right {
+      flex: 1;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      padding: 48px 0 0 0;
+      position: relative;
+    }
+    .profile-header {
+      width: 100%;
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-end;
+      margin-right: 180px;
+      margin-top: 32px;
+      margin-bottom: 0;
+      padding: 0;
+      box-sizing: border-box;
+      margin-left: 0;
+    }
+    .profile-refresh {
+      font-size: 1.6em;
+      color: #222;
+      opacity: 0.7;
+      cursor: pointer;
+      margin-left: auto;
+    }
+    .profile-main {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      margin-top: 0;
+      gap: 32px;
+      margin-left: 80px; 
+    }
+    .profile-photo {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 6px solid #eaf7e2;
+      margin-bottom: 0;         /* Hapus margin bawah agar sejajar */
+      background: #eaf7e2;
+    }
+    .profile-info {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      margin-left: 0;
+      margin-bottom: 32px;
+      width: 420px;
+      max-width: 90vw;
+    }
+    .profile-name-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .profile-name {
+      font-size: 2em;
+      font-weight: 700;
+      color: #111;
+      margin-right: 4px;
+    }
+    .profile-edit {
+      font-size: 1.2em;
+      color: #222;
+      opacity: 0.8;
+      cursor: pointer;
+      margin-top: 2px;
+    }
+    .profile-detail {
+      display: flex;
+      align-items: center;
+      font-size: 1.1em;
+      color: #222;
+      margin: 6px 0;
+      gap: 10px;
+    }
+    .profile-detail svg {
+      width: 1.2em;
+      height: 1.2em;
+      margin-right: 6px;
+      color: #222;
+      opacity: 0.8;
+    }
+    .profile-summary-card {
+      margin-top: 24px;
+      margin-left: 80px; /* Geser lebih ke kanan */
+      background: #eaf7e2;
+      border-radius: 16px 16px 0 0;
+      box-shadow: 0 4px 12px rgba(131, 175, 126, 0.10);
+      width: 520px;
+      max-width: 95vw;
+      min-width: 320px;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      overflow: hidden;
+    }
+    .profile-summary-header {
+      display: flex;
+      background: #eaf7e2;
+      border-radius: 16px 16px 0 0;
+      border-bottom: 1.5px solid #d2e6d2;
+      font-weight: 700;
+      font-size: 1.15em;
+      color: #222;
+      text-align: center;
+    }
+    .profile-summary-header > div {
+      flex: 1;
+      padding: 18px 0 12px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+    }
+    .profile-summary-header .icon {
+      font-size: 1.4em;
+      margin-bottom: 2px;
+    }
+    .profile-summary-header .poin-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .profile-summary-header .poin-icon {
+      width: 28px;
+      height: 28px;
+      vertical-align: middle;
+    }
+    .profile-summary-body {
+      display: flex;
+      background: #f6fcf3;
+      font-size: 1.35em;
+      color: #222;
+      font-weight: 500;
+      border-radius: 0 0 16px 16px;
+    }
+    .profile-summary-body > div {
+      flex: 1;
+      padding: 28px 0 18px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .profile-summary-body > div:first-child span,
+    .profile-summary-body > div:first-child {
+      font-size: 24px;      
+      font-weight: 400;     
+    }
+
+    .profile-summary-body .poin-value {
+      font-size: 24px;      
+      font-weight: 400;
+      color: #222;
+      margin-bottom: 0;
+    }
+    .profile-summary-body .poin-btn {
+      margin-top: 0;
+      background: #97bfa0;
+      color: #fff;
+      border: none;
+      border-radius: 999px;
+      padding: 6px 16px;      
+      font-size: 16px;        
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(131, 175, 126, 0.10);
+      transition: background 0.2s;
+      display: inline-block;
+      white-space: nowrap;
+    }
+    .profile-summary-body .poin-btn:hover {
+      background: #82af82;
+      color: #fff;
+    }
+    .profile-history-icon {
+      width: 32px;
+      height: 32px;
+      cursor: pointer;
+      opacity: 0.8;
+    }
+    .profile-edit-icon {
+      width: 22px;
+      height: 22px;
+      cursor: pointer;
+      opacity: 0.8;
+      margin-top: 2px;
+    }
+    .profile-detail-icon {
+      width: 22px;
+      height: 22px;
+      margin-right: 6px;
+      vertical-align: middle;
+      opacity: 0.8;
+    }
+    .sampah-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px; /* Jarak 4px antara ikon dan teks */
+    }
+    .recycle-icon {
+      height: 1.5em;
+      vertical-align: middle;
+    }
+    @media (max-width: 900px) {
+      .profile-container {
+        flex-direction: column;
+      }
+      .profile-left, .profile-right {
+        width: 100vw;
+        min-width: 0;
+        max-width: 100vw;
+      }
+      .profile-left {
+        min-height: 220px;
+        height: 30vh;
+        max-height: 30vh;
+      }
+      .profile-right {
+        padding: 24px 0 0 0;
+      }
+      .profile-main {
+        margin-top: 0;
+        margin-left: 0;
+      }
+      .profile-info, .profile-summary-card {
+        width: 98vw;
+        min-width: 0;
+        max-width: 100vw;
+      }
+    }
+    @media (max-width: 600px) {
+      .profile-info, .profile-summary-card {
+        width: 100vw;
+        min-width: 0;
+        max-width: 100vw;
+      }
+      .profile-summary-card {
+        width: 90vw;
+        min-width: 0;
+        max-width: 95vw;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 12px;
+        margin-top: 20px;
+        box-shadow: 0 2px 8px rgba(131, 175, 126, 0.10);
+      }
+      .profile-summary-header > div, .profile-summary-body > div {
+        padding: 12px 0 10px 0;
+      }
+      .profile-photo {
+        width: 120px;
+        height: 120px;
+      }
+    }
+
+    .signup-container {
+      display: flex;
+      height: 100vh;
+    }
+        .signup-image {
+      width: 25%; /* 1/4 bagian layar */
+      height: 100vh;
+      overflow: hidden;
+      position: relative;
+    }
+  </style>
+</head>
+<body class="font-sans bg-white">
+  <div class="signup-container">
+    <div class="signup-image">
+      <img src="gambar/background.png" alt="EcoLoop Daftar" />
+    </div>
+
+    <div class="profile-right">
+      <div class="profile-header">
+        <img src="gambar/history.png" alt="History Transaksi" class="profile-history-icon">
+      </div>
+      <div class="profile-main">
+        <img src="gambar/pp.png" alt="Profile Photo" class="profile-photo">
+        <div class="profile-info">
+          <div class="profile-name-row">
+            <span class="profile-name">Ayu Febiola</span>
+            <span class="profile-edit">&#9998;</span>
+          </div>
+          <div class="profile-detail">
+            <img src="gambar/location.png" alt="Lokasi" class="profile-detail-icon">
+            Jl. Sumbersari No.13, Lowokwaru, Malang
+          </div>
+          <div class="profile-detail">
+            <img src="gambar/email.png" alt="Email" class="profile-detail-icon">
+            ayufebiola@gmail.com
+          </div>
+          <div class="profile-detail">
+            <img src="gambar/Phone.png" alt="Telepon" class="profile-detail-icon">
+            081233456789
+          </div>
+        </div>
+      </div>
+      <div class="profile-summary-card">
+        <div class="profile-summary-header">
+          <div class="sampah-row">
+            <img src="gambar/daurUlang.png" alt="Recycle" class="recycle-icon">
+            <span>Berat sampah<br>yang terkumpul</span>
+          </div>
+          <div>
+            <span class="poin-row">
+              <img src="gambar/coin.png" alt="Poin" class="poin-icon">
+              Poin Anda
+            </span>
+          </div>
+        </div>
+        <div class="profile-summary-body">
+          <div>
+            100 Kg
+          </div>
+          <div>
+            <span class="poin-value">50.000 poin</span>
+            <button class="poin-btn">Tukar Poin Anda</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

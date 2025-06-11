@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Informasi Pembayaran</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;600;400&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #fff;
+      position: relative;
+      min-height: 100vh;
+    }
+    
+    .header-payment {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      width: 90%;
+      margin: 40px auto 0 auto;
+    }
+    
+    .btn-back {
+      background: #82af82;
+      color: #fff;
+      border: none;
+      border-radius: 999px;
+      padding: 10px 15px;
+      font-size: 1em;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(131, 175, 126, 0.10);
+      transition: background 0.2s;
+      margin-bottom: 0;
+      
+    }
+    
+    .btn-back:hover {
+      background: #6f9e6f;
+    }
+    .btn-konfir {
+      background-color: #92b894;
+      color: white;
+      border-radius: 999px;
+      font-weight: 900;
+      border: none;
+      padding: 10px 30px;
+      position: fixed;
+      bottom: 80px;
+      right: 100px;
+      z-index: 1000;
+    }
+    
+    .btn-konfir:hover {
+      background: #6f9e6f;
+    }
+    .btn-green-konfir {
+      background: #83AF7E;
+      color: #fff;
+      border: none;
+      border-radius: 999px;
+      padding: 10px 30px;
+      font-size: 1em;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(131, 175, 126, 0.10);
+      transition: background 0.2s;
+      position: fixed;
+      bottom: 80px;
+      right: 100px;
+      z-index: 1000;
+    }
+    
+    .btn-green-konfir:hover {
+      background: #6f9e6f;
+    }
+    
+    .btn-light-green {
+      background-color: #e5f3e5;
+      color: black;
+      border: none;
+      border-radius: 15px;
+      padding: 10px 20px;
+      font-weight: 600;
+      margin: 0 10px 10px 0;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      width: 150px;
+      transition: all 0.2s;
+    }
+    
+    .btn-light-green:hover {
+      transform: translateY(-2px);
+    }
+    
+    .highlight-box {
+      border: 2px solid #92b894;
+      border-radius: 10px;
+      padding: 6px 20px;
+      font-weight: bold;
+      font-size: 1.1rem;
+      display: inline-block;
+      margin: 10px 0;
+    }
+    
+    .summary-box {
+      background-color: white;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      padding: 20px;
+      width: 100%;
+      max-width: 500px;
+      margin: 20px auto;
+    }
+    
+    .payment-method-label {
+      background-color: #92b894;
+      color: white;
+      padding: 6px 20px;
+      border-radius: 30px;
+      font-weight: bold;
+      display: inline-block;
+      margin: 20px 0 15px;
+    }
+    
+    .content-container {
+      padding: 70px 20px 100px;
+      max-width: 800px;
+      margin: 0 auto;
+      width: 100%;
+      text-align: center;
+    }
+    
+    .payment-methods {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 30px;
+    }
+    
+    .payment-title {
+      text-align: center;
+      font-size: 2em;
+      font-weight: 700;
+      margin: 0 0 20px 0;
+      letter-spacing: 0.01em;
+    }
+
+    @media (max-width: 768px) {
+      .header-payment {
+        width: 90%;
+        margin: 20px auto 0 auto;
+        padding: 0;
+      }
+      
+      .payment-title {
+        font-size: 1.8em;
+        margin: 20px 0;
+      }
+      
+      .btn-light-green {
+        width: 140px;
+        padding: 8px 10px;
+        font-size: 0.9rem;
+      }
+      
+      .highlight-box {
+        font-size: 1rem;
+      }
+      
+      .summary-box {
+        padding: 15px;
+      }
+      
+      .content-container {
+        padding: 60px 15px 100px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .header-payment {
+        margin: 15px auto 0 auto;
+      }
+      
+      .payment-title {
+        font-size: 1.6em;
+      }
+      
+      .btn-light-green {
+        width: 45%;
+        margin: 0 2% 10px 0;
+      }
+      
+      .payment-methods {
+        justify-content: space-between;
+        gap: 5px;
+      }
+      
+      .btn-green-konfir {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+        bottom: 15px;
+        right: 15px;
+      }
+      
+      .content-container {
+        padding: 50px 10px 90px;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .btn-light-green {
+        width: 100%;
+        margin: 0 0 10px 0;
+      }
+      
+      .payment-methods {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+        @media (max-width: 600px) {
+      .header-tukar {
+        width: 90%;
+        margin: 12px auto 0 auto;
+        padding: 0;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+      .btn-back {
+        order: 1;
+        font-size: 0.95em;
+        padding: 10px 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="header-payment">
+  <button class="btn-back" onclick="window.history.back()">Kembali</button>
+</div>
+
+<div class="content-container">
+  <h2 class="payment-title">Informasi Pembayaran</h2>
+
+  <div>
+    <span class="fw-bold fs-5 me-2">Jumlah biaya</span>
+    <span class="highlight-box">Rp. 15.000</span>
+  </div>
+
+  <div class="summary-box text-start">
+    <p class="mb-2"><strong>Ringkasan transaksi anda</strong></p>
+    <p class="mb-2">Jl. Sumbersari No.13, Lowokwaru, Malang</p>
+    <p class="mb-2"><strong>23 kg</strong> sampah</p>
+    <p class="mb-2">Sampah non-organik</p>
+  </div>
+
+  <div>
+    <span class="payment-method-label mb-4">Metode pembayaran</span>
+  </div>
+
+  <div class="payment-methods">
+    <button class="btn-light-green" onclick="selectJenisPembayaran(this, 'Tunai')">Tunai</button>
+    <button class="btn-light-green" onclick="selectJenisPembayaran(this, 'Transfer Bank')">Transfer Bank</button>
+    <button class="btn-light-green" onclick="selectJenisPembayaran(this, 'DANA')">DANA</button>
+    <button class="btn-light-green" onclick="selectJenisPembayaran(this, 'OVO')">OVO</button>
+    <button class="btn-light-green" onclick="selectJenisPembayaran(this, 'GOPAY')">GOPAY</button>
+  </div>
+</div>
+
+<button class="btn-green-konfir">Konfirmasi</button>
+
+<script>
+  function selectJenisPembayaran(button, jenis) {
+    // Reset semua button
+    document.querySelectorAll('.btn-light-green').forEach(btn => {
+      btn.style.backgroundColor = '#e5f3e5';
+      btn.style.color = 'black';
+    });
+    
+    // Highlight button yang dipilih
+    button.style.backgroundColor = '#7ca37f';
+    button.style.color = 'white';
+    
+    // Simpan jenis pembayaran yang dipilih
+    console.log('Metode pembayaran dipilih:', jenis);
+  }
+</script>
+
+</body>
+</html>

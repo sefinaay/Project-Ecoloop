@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Voucher Tersedia - EcoLoop</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;600;400&display=swap" rel="stylesheet">
+  <style>
+
+        * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #fff;
+    }
+    .header-tukar {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      width: 90%;
+      margin: 40px auto 0 auto;
+    }
+    .btn-back {
+      background: #82af82;
+      color: #fff;
+      border: none;
+      border-radius: 999px;
+      padding: 10px 15px;      
+      font-size: 1em;         
+      font-weight: 700;       
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(131, 175, 126, 0.10);
+      transition: background 0.2s;
+      margin-bottom: 0;
+    }
+    .btn-back:hover {
+      background: #6f9e6f;
+    }
+    .poin-saya {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      font-weight: 700;
+      font-size: 1.3em;
+      color: #111;
+      margin-top: 8px;
+    }
+    .poin-saya .poin-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .poin-saya .poin-icon {
+      width: 28px;
+      height: 28px;
+      margin-left: 4px;
+      vertical-align: middle;
+    }
+    .voucher-title {
+      text-align: center;
+      font-size: 2.5em;
+      font-weight: 700;
+      margin: 40px 0 32px 0;
+      letter-spacing: 0.01em;
+    }
+    .voucher-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 18px;
+      width: 95%;
+      margin: 0 auto;
+      padding-bottom: 12px;
+      overflow-y: auto;
+    }
+    .voucher-card-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      scroll-snap-align: start;
+      width: 100%;
+      max-width: 260px;
+    }
+    .voucher-card {
+      background: url('gambar/background\ ticket.png') center center/contain no-repeat;
+      border: none;
+      border-radius: 0;
+      width: 100%;
+      max-width: 260px;
+      height: 200px;
+      box-sizing: border-box;
+      text-align: center;
+      position: relative;
+      margin: 0 auto;
+      padding: 32px 18px 24px 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      overflow: hidden;
+    }
+    .voucher-header {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      margin-top: 8px;
+      margin-bottom: 4px;
+    }
+    .voucher-header img {
+      width: 110px !important;
+      height: 40px !important;
+      object-fit: contain;
+      margin: 0 auto 10px auto;
+      display: block;
+    }
+    
+    .voucher-type {
+      font-size: 1.35em;
+      font-weight: 600;
+      margin-bottom: 8px;
+      margin-top: 0;
+      color: #222;
+      letter-spacing: 0.01em;
+    }
+    .voucher-diskon {
+      font-size: 4em;
+      font-weight: 700;
+      color: #111;
+      margin-bottom: 0;
+      margin-top: -8px;
+      letter-spacing: -2px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      gap: 4px;
+      line-height: 1;
+    }
+    .voucher-diskon span {
+      font-size: 0.35em;
+      font-weight: 700;
+      margin-left: 2px;
+      margin-bottom: 10px;
+      position: relative;
+      top: -2px;
+    }
+    .voucher-btn {
+      display: block;
+      background: #83AF7E;
+      color: #fff;
+      border: none;
+      border-radius: 999px;
+      padding: 10px 15px;
+      font-size: 1em;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(131, 175, 126, 0.10);
+      transition: background 0.2s, color 0.2s;
+      width: calc(100% - 20px);
+      max-width: 220px;
+      letter-spacing: 0.01em;
+      margin: 12px auto 0 auto;
+      text-align: center;
+    }
+    .voucher-btn:hover {
+      background: #6f9e6f;
+      color: #fff;
+    }
+    .logo-merchant {
+      width: 44px;
+      height: 44px;
+      object-fit: contain;
+      margin-top: 2px;
+    }
+    .logo-gojek,
+    .logo-gojek-inline {
+      height: 1.1em;
+      vertical-align: middle;
+      margin: 0 2px 0 0;
+    }
+
+    @media (max-width: 768px) {
+      .header-tukar {
+        width: 90%;
+        margin: 20px auto 0 auto;
+        padding: 0;
+      }
+      
+      .voucher-title {
+        font-size: 1.8em;
+        margin: 30px 0 20px 0;
+      }
+      
+      .voucher-list {
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+        overflow-x: hidden;
+        overflow-y: auto;
+        padding: 0 10px 20px;
+      }
+      
+      .voucher-card-wrapper {
+        width: 100%;
+        max-width: 260px;
+      }
+      
+      .voucher-card {
+        height: 200px;
+      }
+      
+      .voucher-diskon {
+        font-size: 3.5em;
+      }
+      
+      .voucher-btn {
+        max-width: 220px;
+        margin-top: 8px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .header-tukar {
+        width: 90%;
+        margin: 12px auto 0 auto;
+        padding: 0;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+      .btn-back {
+        order: 1;
+        font-size: 0.95em;
+        padding: 10px 15px;
+      }
+      .poin-saya {
+        order: 2;
+        align-items: flex-end;
+        margin-top: 0;
+        font-size: 1em;
+      }
+      .voucher-card {
+        max-width: 260px;
+        height: 160px;
+        padding: 18px 10px 16px 10px;
+      }
+      .voucher-btn {
+        max-width: 200px;
+        font-size: 0.95em;
+        padding: 10px 15px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .header-tukar {
+        width: 90%;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+      
+      .poin-saya {
+        align-items: flex-end;
+      }
+      
+      .voucher-title {
+        font-size: 1.6em;
+        margin: 20px 0 15px 0;
+      }
+      
+      .voucher-card-wrapper {
+        width: 100%;
+      }
+      
+      .voucher-card {
+        height: 160px;
+      }
+      
+      .voucher-diskon {
+        font-size: 3em;
+      }
+      
+      .voucher-btn {
+        max-width: 180px;
+      }
+    }
+
+    /* Success Popup Styles */
+    .popup-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+    .popup {
+      background-color: white;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      padding: 32px;
+      width: 90%;
+      max-width: 700px;
+      text-align: center;
+      animation: fadeInUp 0.3s ease-in-out;
+    }
+    .popup h2 {
+      font-size: 1.5em;
+      font-weight: 700;
+      color: #83AF7E;
+      margin-bottom: 8px;
+    }
+    .popup h3 {
+      font-size: 1.2em;
+      font-weight: 600;
+      color: #222;
+      margin-top: 0;
+      margin-bottom: 16px;
+    }
+    .popup p {
+      font-size: 1em;
+      color: #555;
+      margin: 16px 0;
+    }
+    .popup-btn {
+      background: #83AF7E;
+      color: white;
+      border: none;
+      border-radius: 999px;
+      padding: 10px 24px;
+      font-size: 1em;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 16px;
+      transition: background 0.2s;
+    }
+    .popup-btn:hover {
+      background: #6f9e6f;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <div class="header-tukar">
+    <button class="btn-back" onclick="window.history.back()">Kembali</button>
+    <div class="poin-saya">
+      <div class="poin-row">
+        Poin Saya
+        <img src="gambar/coin.png" alt="Poin" class="poin-icon">
+      </div>
+      <div style="font-size:1.1em; font-weight:700; margin-top:2px;">50.000</div>
+    </div>
+  </div>
+  <div class="voucher-title">Voucher Tersedia</div>
+  <div class="voucher-list">
+    <!-- Voucher 1 -->
+    <div class="voucher-card-wrapper">
+      <div class="voucher-card">
+        <div class="voucher-header">
+          <img src="gambar/goFood.png" alt="gofood">
+        </div>
+        <div class="voucher-type">Diskon S.D</div>
+        <div class="voucher-diskon">15<span>%</span></div>
+      </div>
+      <button class="voucher-btn" onclick="showSuccessPopup()">Tukar Poin</button>
+    </div>
+    <!-- Voucher 2 -->
+    <div class="voucher-card-wrapper">
+      <div class="voucher-card">
+        <div class="voucher-header">
+          <img src="gambar/goFood.png" alt="gofood">
+        </div>
+        <div class="voucher-type">Diskon S.D</div>
+        <div class="voucher-diskon">60<span>%</span></div>
+      </div>
+      <button class="voucher-btn" onclick="showFailPopup()">Tukar Poin</button>
+    </div>
+    <!-- Voucher 3 -->
+    <div class="voucher-card-wrapper">
+      <div class="voucher-card">
+        <div class="voucher-header">
+          <img src="gambar/goCar.png" alt="gocar" class="voucher-logo">
+        </div>
+        <div class="voucher-type">Diskon S.D</div>
+        <div class="voucher-diskon">50<span>%</span></div>
+      </div>
+      <button class="voucher-btn" onclick="showFailPopup()">Tukar Poin</button>
+    </div>
+    <!-- Voucher 4 -->
+    <div class="voucher-card-wrapper">
+      <div class="voucher-card">
+        <div class="voucher-header">
+          <img src="gambar/goRide.png" alt="goride">
+        </div>
+        <div class="voucher-type">Diskon S.D</div>
+        <div class="voucher-diskon">30<span>%</span></div>
+      </div>
+      <button class="voucher-btn" onclick="showSuccessPopup()">Tukar Poin</button>
+    </div>
+    <!-- Voucher 5 -->
+    <div class="voucher-card-wrapper">
+      <div class="voucher-card">
+        <div class="voucher-header">
+          <img src="gambar/goFood.png" alt="gofood">
+        </div>
+        <div class="voucher-type">Diskon S.D</div>
+        <div class="voucher-diskon">60<span>%</span></div>
+      </div>
+      <button class="voucher-btn" onclick="showFailPopup()">Tukar Poin</button>
+    </div>
+    <!-- Voucher 6 -->
+    <div class="voucher-card-wrapper">
+      <div class="voucher-card">
+        <div class="voucher-header">
+          <img src="gambar/goFood.png" alt="gofood">
+        </div>
+        <div class="voucher-type">Diskon S.D</div>
+        <div class="voucher-diskon">15<span>%</span></div>
+      </div>
+      <button class="voucher-btn" onclick="showSuccessPopup()">Tukar Poin</button>
+    </div>
+  </div>
+
+    <!-- untuk menyembunyikan gambar jika tutup di tekan -->
+  <div class="popup-overlay" id="successPopup" style="display: none;">
+    <div class="popup">
+      <img src="gambar/Berhasil.png">
+      <h1>Selamat! poin telah berhasil ditukar</h1>
+      <button class="popup-btn" onclick="hideSuccessPopup()">Tutup</button>
+    </div>
+  </div>
+
+  <div class="popup-overlay" id="failPopup" style="display: none;">
+    <div class="popup">
+      <img src="gambar/gagal.png">
+      <h1>Poin gagal ditukar</h1>
+      <button class="popup-btn" onclick="hideFailPopup()">Tutup</button>
+    </div>
+  </div>
+
+  <script>
+    function showSuccessPopup() {
+      document.getElementById('successPopup').style.display = 'flex';
+    }
+    
+    function hideSuccessPopup() {
+      document.getElementById('successPopup').style.display = 'none';
+    }
+
+    function showFailPopup() {
+      document.getElementById('failPopup').style.display = 'flex';
+    }
+    
+    function hideFailPopup() {
+      document.getElementById('failPopup').style.display = 'none';
+    }
+  </script>
+</body>
+</html>
